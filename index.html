@@ -1,0 +1,49 @@
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="My List" />
+    <meta name="apple-mobile-web-app-title" content="My List" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>myList</h1>
+    </nav>
+    <ul id="list"></ul>
+    <div id="modal" class="modal">
+      <h1><div class="container">New Item</div></h1>
+      <div class="container">
+        <form id="item-form">
+          <label>Name:</label>
+          <input
+            type="text"
+            class="textfield"
+            placeholder="Name of item"
+            id="item-name"
+          />
+          <input type="submit" class="btn" />
+        </form>
+      </div>
+    </div>
+    <button id="fab" class="button-fab">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="white"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        <path d="M0 0h24v24H0z" fill="none" />
+      </svg>
+    </button>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
