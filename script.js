@@ -1,6 +1,6 @@
 'use strict';
 
-import { StorageWrapper } from './storage';
+import { StorageWrapper } from './storage.js';
 
 class MyList {
   constructor() {
