@@ -45,5 +45,15 @@
       </svg>
     </button>
     <script type="module" src="./script.js"></script>
+
+    <!--Register Service Worker-->
+    <script>
+      if (
+        window.location.hostname === 'my-list-app.netlify.app' &&
+        'serviceWorker' in navigator
+      ) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    </script>
   </body>
 </html>
