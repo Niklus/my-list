@@ -15,12 +15,19 @@ class MyList {
     this.modal = document.querySelector("#modal");
     this.form = document.querySelector("#item-form");
     this.list = document.querySelector("#list");
+    this.clearBtn = document.querySelector(".clearBtn");
     this.init();
   }
 
   init() {
     this.fab.addEventListener("click", () => {
       this.toggleModal();
+    });
+
+    this.clearBtn.addEventListener("click", () => {
+      if (this.todos.length > 0 && confirm("Clear all ...are you sure?")) {
+        this.clearItems();
+      }
     });
 
     this.form.addEventListener("submit", (event) => {
@@ -52,6 +59,12 @@ class MyList {
 
   deleteItem(index) {
     this.todos.splice(index, 1);
+    this.store.set("todos", this.todos);
+    this.render();
+  }
+
+  clearItems() {
+    this.todos = [];
     this.store.set("todos", this.todos);
     this.render();
   }

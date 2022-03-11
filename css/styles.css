@@ -17,6 +17,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clearBtn {
+  background-color: rgb(233, 68, 109);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
 .modal {
   opacity: 0;
   transition: transform 140ms ease-out, opacity 140ms ease-out;
@@ -120,6 +133,7 @@ nav h1 {
   cursor: pointer;
   transition: opacity 200ms ease-out;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-weight: bolder;
 }
 
 .btn:hover {
