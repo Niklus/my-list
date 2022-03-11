@@ -5,7 +5,11 @@ import { StorageWrapper } from "./storage.js";
 class MyList {
   constructor() {
     this.store = new StorageWrapper("local");
-    this.todos = this.store.get("todos") ?? [{ title: "Study" }];
+    this.todos = this.store.get("todos") ?? [
+      { title: "Get some rest 😴" },
+      { title: "Buy Coffee ☕️" },
+      { title: "Study 📘" },
+    ];
     this.fab = document.querySelector("#fab");
     this.item = document.querySelector("#item-name");
     this.modal = document.querySelector("#modal");
