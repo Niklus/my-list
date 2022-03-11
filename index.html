@@ -1,23 +1,26 @@
-<html>
-  <head lang="en">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyList</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="My List" />
-    <meta name="apple-mobile-web-app-title" content="My List" />
+    <meta name="application-name" content="myList" />
+    <meta name="apple-mobile-web-app-title" content="myList" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <title>myList</title>
   </head>
   <body>
     <nav>
       <h1>myList</h1>
     </nav>
+
     <ul id="list"></ul>
+
     <div id="modal" class="modal">
       <h1><div class="container">New Item</div></h1>
       <div class="container">
@@ -32,6 +35,7 @@
         </form>
       </div>
     </div>
+
     <button id="fab" class="button-fab">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -44,15 +48,16 @@
         <path d="M0 0h24v24H0z" fill="none" />
       </svg>
     </button>
-    <script type="module" src="./script.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
 
     <!--Register Service Worker-->
     <script>
       if (
-        window.location.hostname === 'my-list-app.netlify.app' &&
-        'serviceWorker' in navigator
+        window.location.hostname === "my-list-app.netlify.app" &&
+        "serviceWorker" in navigator
       ) {
-        navigator.serviceWorker.register('/sw.js');
+        navigator.serviceWorker.register("/sw.js");
       }
     </script>
   </body>
