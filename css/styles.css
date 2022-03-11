@@ -5,6 +5,12 @@
   --dark: #232323;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: var(--light-gray);
@@ -16,7 +22,7 @@ body {
   transition: transform 140ms ease-out, opacity 140ms ease-out;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: var(--teal);
+  background-color: #1d9f9f;
   height: 100vh;
   transform: translateY(80px);
   position: fixed;
@@ -97,7 +103,7 @@ nav h1 {
   border-radius: 2px;
   border: 1px solid var(--light-gray);
   font-size: 16px;
-  width: 100%;
+  min-width: 100%;
   transition: opacity 200ms ease-out;
   margin-bottom: 20px;
 }
@@ -106,7 +112,7 @@ nav h1 {
   background-color: var(--dark-blue);
   color: white;
   border: 0;
-  padding: 15px 20px;
+  padding: 15px;
   min-width: 100%;
   font-size: 16px;
   min-height: 50px;
@@ -115,6 +121,7 @@ nav h1 {
   transition: opacity 200ms ease-out;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+
 .btn:hover {
   opacity: 0.8;
 }
