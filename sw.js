@@ -1,4 +1,4 @@
-const cacheName = "cache-v6";
+const cacheName = "cache-v7";
 
 const precacheResources = [
   "/",
@@ -10,6 +10,7 @@ const precacheResources = [
   "icons/180x180.png",
   "js/storage.js",
   "css/styles.css",
+  "js/slip.min.js",
 ];
 
 self.addEventListener("install", (event) => {

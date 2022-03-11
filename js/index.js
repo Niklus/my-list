@@ -5,17 +5,20 @@ import { StorageWrapper } from "./storage.js";
 class MyList {
   constructor() {
     this.store = new StorageWrapper("local");
+
     this.todos = this.store.get("todos") ?? [
       { title: "Get some rest 😴" },
       { title: "Buy Coffee ☕️" },
       { title: "Study 📘" },
     ];
+
     this.fab = document.querySelector("#fab");
     this.item = document.querySelector("#item-name");
     this.modal = document.querySelector("#modal");
     this.form = document.querySelector("#item-form");
     this.list = document.querySelector("#list");
     this.clearBtn = document.querySelector(".clearBtn");
+
     this.init();
   }
 
@@ -45,6 +48,41 @@ class MyList {
     });
 
     this.render();
+    this.slipSetup();
+  }
+
+  slipSetup() {
+    this.list.addEventListener(
+      "slip:beforeswipe",
+      function (e) {
+        if (
+          e.target.nodeName == "INPUT" ||
+          /demo-no-swipe/.test(e.target.className)
+        ) {
+          e.preventDefault();
+        }
+      },
+      false
+    );
+
+    this.list.addEventListener(
+      "slip:afterswipe",
+      function (e) {
+        e.target.parentNode.appendChild(e.target);
+      },
+      false
+    );
+
+    this.list.addEventListener(
+      "slip:reorder",
+      function (e) {
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        return false;
+      },
+      false
+    );
+
+    new Slip(this.list);
   }
 
   toggleModal() {
@@ -87,7 +125,7 @@ class MyList {
     this.todos.forEach((item, index) => {
       list.insertAdjacentHTML(
         "afterbegin",
-        `<li tabindex="0" class="deletable">
+        `<li tabindex="0" class="deletable" class="demo-no-swipe">
         <span class="delete">
           <b>${item.title}</b> 
           <svg class="deleteBtn" id=${index} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
