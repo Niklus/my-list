@@ -1,25 +1,25 @@
-'use strict';
+"use strict";
 
-import { StorageWrapper } from './storage.js';
+import { StorageWrapper } from "./storage.js";
 
 class MyList {
   constructor() {
-    this.store = new StorageWrapper('local');
-    this.todos = this.store.get('todos') ?? [{ title: 'Study' }];
-    this.fab = document.querySelector('#fab');
-    this.item = document.querySelector('#item-name');
-    this.modal = document.querySelector('#modal');
-    this.form = document.querySelector('#item-form');
-    this.list = document.querySelector('#list');
+    this.store = new StorageWrapper("local");
+    this.todos = this.store.get("todos") ?? [{ title: "Study" }];
+    this.fab = document.querySelector("#fab");
+    this.item = document.querySelector("#item-name");
+    this.modal = document.querySelector("#modal");
+    this.form = document.querySelector("#item-form");
+    this.list = document.querySelector("#list");
     this.init();
   }
 
   init() {
-    this.fab.addEventListener('click', () => {
+    this.fab.addEventListener("click", () => {
       this.toggleModal();
     });
 
-    this.form.addEventListener('submit', (event) => {
+    this.form.addEventListener("submit", (event) => {
       event.preventDefault();
 
       this.toggleModal();
@@ -27,9 +27,9 @@ class MyList {
 
       if (this.item.value) {
         this.todos.push({ title: this.item.value });
-        this.store.set('todos', this.todos);
+        this.store.set("todos", this.todos);
         this.render();
-        this.item.value = '';
+        this.item.value = "";
       }
     });
 
@@ -37,9 +37,9 @@ class MyList {
   }
 
   toggleModal() {
-    this.modal.classList.toggle('show');
-    this.fab.classList.toggle('rotate');
-    if (modal.classList.contains('show')) {
+    this.modal.classList.toggle("show");
+    this.fab.classList.toggle("rotate");
+    if (modal.classList.contains("show")) {
       this.item.focus();
     } else {
       this.item.blur();
@@ -48,15 +48,17 @@ class MyList {
 
   deleteItem(index) {
     this.todos.splice(index, 1);
-    this.store.set('todos', this.todos);
+    this.store.set("todos", this.todos);
     this.render();
   }
 
   addListeners() {
-    const deleteBtns = document.querySelectorAll('.deleteBtn');
-    if (deleteBtns.lenght !== 0) {
+    const deleteBtns = document.querySelectorAll(".deleteBtn");
+    if (deleteBtns.length === 0) {
+      return;
+    } else {
       deleteBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener("click", (e) => {
           this.deleteItem(e.currentTarget.id);
         });
       });
@@ -64,10 +66,10 @@ class MyList {
   }
 
   render() {
-    this.list.innerHTML = '';
+    this.list.innerHTML = "";
     this.todos.forEach((item, index) => {
       list.insertAdjacentHTML(
-        'afterbegin',
+        "afterbegin",
         `<li tabindex="0" class="deletable">
         <span class="delete">
           <b>${item.title}</b> 
